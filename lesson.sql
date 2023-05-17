@@ -150,5 +150,33 @@ skypro-# LIKE 'D%';
   2 | N.V.Gogol | Daed Souls |     12
 (1 ёЄЁюър)
 
+skypro=# SELECT * FROM book
+skypro-# WHERE author = 'N.V.Gogol' AND amount>12;
+ id |  author   |    title    | amount
+----+-----------+-------------+--------
+  3 | N.V.Gogol | Taras Bulba |     15
+(1 ёЄЁюър)
+
+
+skypro=# SELECT * FROM book
+skypro-# WHERE author = 'N.V.Gogol' OR amount>12;
+ id |   author    |     title     | amount
+----+-------------+---------------+--------
+  2 | N.V.Gogol   | Daed Souls    |     12
+  3 | N.V.Gogol   | Taras Bulba   |     15
+  6 | A.P.Chekhov | Three Sisters |     14
+(3 ёЄЁюъш)
+
+
+skypro=# SELECT * FROM book
+skypro-# WHERE NOT author = 'N.V.Gogol';
+ id |    author    |       title        | amount
+----+--------------+--------------------+--------
+  4 | A.S.Pishkin  | Ruslan and Ludmila |     11
+  5 | A.P.Chekhov  | Uncle Vanya        |      8
+  6 | A.P.Chekhov  | Three Sisters      |     14
+  7 | L.N. Tolstoy | War ang Peace      |      5
+(4 ёЄЁюъш)
+
 
 skypro=#
