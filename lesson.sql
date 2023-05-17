@@ -163,7 +163,7 @@ skypro-# WHERE author = 'N.V.Gogol' OR amount>12;
  id |   author    |     title     | amount
 ----+-------------+---------------+--------
   2 | N.V.Gogol   | Daed Souls    |     12
-  3 | N.V.Gogol   | Taras Bulba   |     15
+  3 | N.V.Gogol   | Taras Bulba   |     1
   6 | A.P.Chekhov | Three Sisters |     14
 (3 ёЄЁюъш)
 
@@ -180,3 +180,40 @@ skypro-# WHERE NOT author = 'N.V.Gogol';
 
 
 skypro=#
+
+skypro=# SELECT * FROM book
+skypro-# WHERE amount =(
+skypro(# SELECT MIN(amount)
+skypro(# FROM book
+skypro(# );
+ id |    author    |     title     | amount
+----+--------------+---------------+--------
+  7 | L.N. Tolstoy | War ang Peace |      5
+(1 ёЄЁюър)
+
+
+skypro=# SELECT * FROM book
+skypro-# ;
+ id |    author    |       title        | amount
+----+--------------+--------------------+--------
+  2 | N.V.Gogol    | Daed Souls         |     12
+  3 | N.V.Gogol    | Taras Bulba        |     15
+  4 | A.S.Pishkin  | Ruslan and Ludmila |     11
+  5 | A.P.Chekhov  | Uncle Vanya        |      8
+  6 | A.P.Chekhov  | Three Sisters      |     14
+  7 | L.N. Tolstoy | War ang Peace      |      5
+(6 ёЄЁюъ)
+
+
+skypro=# CREATE INDEX book_author_idx ON book(author);
+CREATE INDEX
+skypro=# DROP INDEX book_author_idx;
+DROP INDEX
+skypro=#
+skypro=# SELECT * FROM employee;
+ id | first_name | last_name | gender | age
+----+------------+-----------+--------+-----
+  3 | Zoi        | Ivanova   | w      |  35
+  1 | Alex       | Fedorov   | m      |  31
+(2 ёЄЁюъш)
+
