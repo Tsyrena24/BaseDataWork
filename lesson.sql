@@ -52,6 +52,7 @@ skypro=# INSERT INTO book (
 skypro(# author, title, amount)
 skypro-# VALUES ('L.N. Tolstoy', 'War ang Peace', 5);
 INSERT 0 1
+
 skypro=# SELECT author AS Автор,
 skypro-# COUNT (title) AS Книги,
 skypro-# SUM (amount) AS Кол_экземпляров
@@ -79,14 +80,6 @@ skypro-# ORDER BY author DESC, title ASC;
 (4 ёЄЁюъш)
 
 
-skypro=# SELECT author AS Автор,
-skypro-# AVG(amount) AS Среднее_кол_экзем
-skypro-# FROM book
-skypro-# GROUP BY Автор
-skypro-# HAVIMG AVG(amount) > 10;
-ERROR:  syntax error at or near "HAVIMG"
-СТРОКА 5: HAVIMG AVG(amount) > 10;
-          ^
 skypro=# SELECT author AS Автор,
 skypro-# AVG(amount) AS Среднее_кол_экзем
 skypro-# FROM book
